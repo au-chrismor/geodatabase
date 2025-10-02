@@ -1,0 +1,22 @@
+name: TruffleHog_Scan
+on:
+    push:
+        branches:
+            - develop
+    pull_request:
+        branches:
+          - main
+jobs:
+    scanning:
+         name: TruffleHog Enterprise scan
+         runs-on: ubuntu-latest
+         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0 # fetch all history so multiple commits can be sc
+anned
+            - name: TruffleHog Enterprise scan
+              uses: trufflesecurity/trufflehog@main
+              with:
+                extra_args: --results=verified,unknown
