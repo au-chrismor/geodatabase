@@ -1,8 +1,8 @@
-#resource "aws_ssm_parameter" "database_host" {
-#  name = "/${var.project}/${var.version_id}/${var.environment}/dbhost"
-#  type = "String"
-#  value = aws_db_instance.database.address
-#}
+resource "aws_ssm_parameter" "database_host" {
+  name = "/${var.project}/${var.version_id}/${var.environment}/dbhost"
+  type = "String"
+  value = aws_db_instance.database.address
+}
 
 resource "aws_ssm_parameter" "database_user" {
   name = "/${var.project}/${var.version_id}/${var.environment}/dbuser"
@@ -19,7 +19,7 @@ resource "aws_ssm_parameter" "database_password" {
 resource "aws_ssm_parameter" "database_name" {
   name = "/${var.project}/${var.version_id}/${var.environment}/dbname"
   type = "String"
-  value = "geo${var.version_id}"
+  value = "${var.project}${var.version_id}"
 }
 
 resource "aws_vpc_endpoint" "ssm_endpoint" {
