@@ -1,0 +1,20 @@
+name: Terraform Plan
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'terraform/**'
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init -backend-config="bucket=cfm-tf-state, key=geodb-api/state"

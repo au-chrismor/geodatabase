@@ -8,7 +8,7 @@ terraform {
     }
     backend "s3" {
       bucket = "cfm-tf-state"
-      key = "sfm-api/state"
+      key = "geodb-api/state"
       region = "ap-southeast-2"
       encrypt = true
     }
