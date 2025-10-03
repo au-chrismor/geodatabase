@@ -18,3 +18,5 @@ jobs:
 
       - name: Terraform Init
         run: terraform init -backend-config="bucket=cfm-tf-state, key=geodb-api/state"
+        with:
+          path: ./terraform
