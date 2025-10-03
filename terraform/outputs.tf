@@ -25,3 +25,11 @@ output "security_group_rds" {
 output "dabase_address" {
   value = aws_db_instance.database.address
 }
+
+output "lambda_runtime_arn" {
+  value = aws_lambda_layer_version.runtime.arn
+}
+
+output "lambda_country_count_arn" {
+  value = aws_lambda_function.country_count.arn
+}

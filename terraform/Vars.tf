@@ -1,4 +1,9 @@
-variable app_subnets {
+variable "api_country_count_name" {
+    type = string
+    default = "country_count"
+}
+
+variable "app_subnets" {
     type = list(string)
 }
 
@@ -68,6 +73,10 @@ variable "environment" {
 }
 
 variable "lambda_runtime_file" {
+  type = string
+}
+
+variable "lambda_extension_arn" {
   type = string
 }
 
